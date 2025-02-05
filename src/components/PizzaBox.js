@@ -1,16 +1,37 @@
 import React from 'react'
 import {createContext} from "react";
+import {orderPizza} from "./redux";
+import {connect} from "react-redux";
 
 const Data = createContext()
 
-export default function PizzaBox() {
+function PizzaBox(props) {
     return (
 
         <Data.Provider value={{name: 'John Doe'}}>
-            <div>PizzaBox</div>
-
-
+            <div className={'container'}>
+                <h2 className={'title'}>
+                    Number of pizzas - {props.pizzaBase}
+                </h2>
+                <button onClick={props.orderPizza} className={'btn'}>
+                    Order Pizza
+                </button>
+            </div>
+            {/*<Pizza/>*/}
 
         </Data.Provider>
     )
 }
+const mapStateToProps = (state) => {
+    return {
+        pizzaBase: state.pizzaBase
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        orderPizza: () => dispatch(orderPizza())
+    }
+}
+
+//add mappings to component
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaBox)

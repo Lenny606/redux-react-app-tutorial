@@ -1,7 +1,7 @@
 //Action creator
 import {ORDER_PIZZA} from "./PizzaTypes";
 
-const orderPizza =()=>{
+export const orderPizza =()=>{
     return {
         type: ORDER_PIZZA
     }

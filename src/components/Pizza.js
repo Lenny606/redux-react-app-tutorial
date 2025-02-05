@@ -6,8 +6,6 @@ export default function Pizza() {
     const {name} = useContext(Data)
     return (
         <Data.Consumer >
-
-
             {
                 (data) => {
                     return (
@@ -18,8 +16,6 @@ export default function Pizza() {
                     )
                 }
             }
-
-            
         </Data.Consumer>
     )
 }
