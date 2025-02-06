@@ -11,9 +11,9 @@ function PizzaBox(props) {
         <Data.Provider value={{name: 'John Doe'}}>
             <div className={'container'}>
                 <h2 className={'title'}>
-                    Number of pizzas - {props.pizzaBase}
+                    Number of pizzas - {props.pizza.pizzaBase}
                 </h2>
-                <button onClick={props.orderPizza} className={'btn'}>
+                <button onClick={props.pizza.orderPizza} className={'btn'}>
                     Order Pizza
                 </button>
             </div>
