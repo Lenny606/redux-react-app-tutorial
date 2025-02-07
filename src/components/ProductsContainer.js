@@ -1,12 +1,15 @@
-import {connect} from "react-redux";
+import {connect, useDispatch, useSelector} from "react-redux";
 import {fetchProducts, orderPizza} from "./redux";
 import {useEffect, useState} from "react";
 
 function ProductsContainer({productsData, fetchProducts}) {
 
-    const [data, setData] = useState([])
+    //using Hooks
+    // const pData = useSelector(state => this.state.product)
+    // const pDispatch = useDispatch()
 
     useEffect(() => {
+        // pDispatch(fetchProducts())
         fetchProducts()
     }, []);
 
@@ -20,8 +23,8 @@ function ProductsContainer({productsData, fetchProducts}) {
                 productsData.products && <p>{productsData.products.map(t => <p>{t}</p>)}</p>
             }
             {
-            productsData.error && <p>{productsData.error}</p>
-        }
+                productsData.error && <p>{productsData.error}</p>
+            }
         </div>
     )
 }
