@@ -10,6 +10,9 @@ export const pizzaSlice = createSlice({
         //action creator
         pizza_order: (state) => {
             return state.pizzaBase - 1
+        },
+        customer_choise: (state, action) => {
+            state.pizzaBase = state.pizzaBase - action.payload
         }
     }
 

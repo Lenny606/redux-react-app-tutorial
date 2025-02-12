@@ -22,6 +22,7 @@ function PizzaBox(props) {
         </Data.Provider>
     )
 }
+
 const mapStateToProps = (state) => {
     return {
         pizzaBase: state.pizzaBase

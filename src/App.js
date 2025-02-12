@@ -2,6 +2,7 @@ import './App.css';
 import PizzaBox from "./components/PizzaBox";
 import {Provider} from 'react-redux'
 import store from "./components/redux/store";
+import storeRT from "./components/redux-toolkit/store";
 import HooksContainer from "./components/HooksContainer";
 import BurgerBox from "./components/BurgerBox";
 import ProductsContainer from "./components/ProductsContainer";

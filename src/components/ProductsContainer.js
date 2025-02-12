@@ -1,6 +1,7 @@
 import {connect, useDispatch, useSelector} from "react-redux";
 import {fetchProducts, orderPizza} from "./redux";
 import {useEffect, useState} from "react";
+import {fetchProductsRT} from "./redux-toolkit/product/productSlice";
 
 function ProductsContainer({productsData, fetchProducts}) {
 
@@ -12,6 +13,15 @@ function ProductsContainer({productsData, fetchProducts}) {
         // pDispatch(fetchProducts())
         fetchProducts()
     }, []);
+
+    //ASYNC
+    const dispatchRT = useDispatch()
+    const product = useSelector(state => state.product)
+    useEffect(() => {
+        // pDispatch(fetchProducts())
+        dispatchRT(fetchProductsRT())
+    }, []);
+
 
 
     return (
@@ -25,7 +35,20 @@ function ProductsContainer({productsData, fetchProducts}) {
             {
                 productsData.error && <p>{productsData.error}</p>
             }
+            {/* --- ASYNC FROM REDUX TOOLKiT*/}
+            <div className={'container'}>
+                {
+                    product.loading && <p>Loading...</p>
+                }
+                {
+                    product.products && <p>{product.products.map(t => <p>{t}</p>)}</p>
+                }
+                {
+                    product.error && <p>{product.error}</p>
+                }
+            </div>
         </div>
+
     )
 }
 
